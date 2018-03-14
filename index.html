@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Link Template</title>
+    <meta name="description" content="">
+    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <header class="clearfix">
+        <img class="logo" src="images/link-logo.png" alt="Link Logo">
+        <nav>
+            <ul class="vertical-middle">
+                <li class="btn btn-primary">Reset</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container clearfix">
+        <section id="control-side" class="main-section float-right">
+            <div class="section-body">
+                <div class="btn-wrp">
+                    <button id="collapseAll" type="button" class="btn btn-primary">Collapse all</button>
+                    <button id="expandAll" type="button" class="btn btn-secondary">Expand all</button>
+                </div>
+                <!-- Dimensions -->
+                <div class="collapsible">
+                    <h3>Dimensions</h3>
+                    <div class="collapsible-content clearfix">
+                        <div class="half-width float-left">
+                            <!-- Width -->
+                            <div class="prop-control">
+                                <label for="dimensions-width" class="float-left">Width:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="border" id="dimensions-width">
+                                </div>
+                            </div>
+                            <!-- Min Width -->
+                            <div class="prop-control">
+                                <label for="dimensions-min-width" class="float-left">Min width:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="border" id="dimensions-min-width">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="half-width float-left">
+                            <!-- Height -->
+                            <div class="prop-control">
+                                <label for="dimensions-height" class="float-left">Height:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="border" id="dimensions-height">
+                                </div>
+                            </div>
+                            <!-- Min Height -->
+                            <div class="prop-control">
+                                <label for="dimensions-min-height" class="float-left">Min height:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="border" id="dimensions-min-height">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Padding -->
+                <div class="collapsible">
+                    <h3>Padding/ Margin</h3>
+                    <div class="collapsible-content clearfix">
+                        <div class="half-width float-left">
+                            <!-- Padding -->
+                            <div class="prop-control">
+                                <label for="padding-general" class="float-left">Padding</label>
+                                <div class="all float-right">
+                                    <input type="checkbox" name="padding-all" id="padding-all" data-show="paddingProp">
+                                    <label for="padding-all"></label>
+                                </div>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="border" id="padding-general">
+                                </div>
+                            </div>
+                            <div class="show-each" id="paddingProp">
+                                <!-- Padding Top -->
+                                <div class="prop-control">
+                                    <label for="padding-top" class="float-left">Padding top:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="padding" id="padding-top">
+                                    </div>
+                                </div>
+                                <!-- Padding Right -->
+                                <div class="prop-control">
+                                        <label for="padding-right" class="float-left">Padding right:</label>
+                                        <p class="unit float-right">px</p>
+                                        <div class="overflow-hidden">
+                                            <input type="number" name="padding" id="padding-right">
+                                        </div>
+                                    </div>
+                                    <!-- Padding Bottom -->
+                                <div class="prop-control">
+                                        <label for="padding-bottom" class="float-left">Padding bottom:</label>
+                                        <p class="unit float-right">px</p>
+                                        <div class="overflow-hidden">
+                                            <input type="number" name="border" id="padding-bottom">
+                                        </div>
+                                    </div>
+                                    <!-- Padding Left -->
+                                <div class="prop-control">
+                                        <label for="padding-left" class="float-left">Padding left:</label>
+                                        <p class="unit float-right">px</p>
+                                        <div class="overflow-hidden">
+                                            <input type="number" name="border" id="padding-left">
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div class="half-width float-left">
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Border -->
+                <div class="collapsible">
+                    <h3>Border</h3>
+                    <div class="collapsible-content clearfix">
+                        <div class="half-width float-left">
+                            <!-- Border Width -->
+                            <div class="prop-control">
+                                <label for="border-width" class="float-left">Border width:</label>
+                                <div class="all float-right">
+                                    <input type="checkbox" name="border-all" id="border-width-all" data-show="borderWidthProp">
+                                    <label for="border-width-all"></label>
+                                </div>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="border" id="border-width">
+                                </div>
+                            </div>
+                            <div class="show-each" id="borderWidthProp">
+                                <!-- Border Top Width -->
+                                <div class="prop-control">
+                                    <label for="border-top-width" class="float-left">Border top width:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="border" id="border-top-width">
+                                    </div>
+                                </div>
+                                <!-- Border Right Width -->
+                                <div class="prop-control">
+                                    <label for="border-right-width" class="float-left">Border right width:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="border" id="border-right-width">
+                                    </div>
+                                </div>
+                                <!-- Border Bottom Width -->
+                                <div class="prop-control">
+                                    <label for="border-bottom-width" class="float-left">Border bottom width:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="border" id="border-bottom-width">
+                                    </div>
+                                </div>
+                                <!-- Border Left Width -->
+                                <div class="prop-control">
+                                    <label for="border-left-width" class="float-left">Border left width:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="border" id="border-left-width">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Border Color -->
+                            <div class="prop-control">
+                                <label for="border-color" class="float-left">Border color:</label>
+                                <div class="all float-right">
+                                    <input type="checkbox" name="border-all" id="border-color-all" data-show="borderColorProp">
+                                    <label for="border-color-all"></label>
+                                </div>
+                                <p class="unit float-right">#10b63e</p>
+                                <div class="overflow-hidden">
+                                    <input type="color" value="#10b63e" name="border" id="border-color">
+                                </div>
+                            </div>
+                            <div class="show-each" id="borderColorProp">
+                                <!-- Border Top Color -->
+                                <div class="prop-control">
+                                    <label for="border-top-color" class="float-left">Border top color:</label>
+                                    <p class="unit float-right">#10b63e</p>
+                                    <div class="overflow-hidden">
+                                        <input type="color" value="#10b63e" name="border" id="border-top-color">
+                                    </div>
+                                </div>
+                                <!-- Border Right Color -->
+                                <div class="prop-control">
+                                    <label for="border-right-color" class="float-left">Border right color:</label>
+                                    <p class="unit float-right">#10b63e</p>
+                                    <div class="overflow-hidden">
+                                        <input type="color" value="#10b63e" name="border" id="border-right-color">
+                                    </div>
+                                </div>
+                                <!-- Border Bottom Color -->
+                                <div class="prop-control">
+                                    <label for="border-bottom-color" class="float-left">Border bottom color:</label>
+                                    <p class="unit float-right">#10b63e</p>
+                                    <div class="overflow-hidden">
+                                        <input type="color" value="#10b63e" name="border" id="border-bottom-color">
+                                    </div>
+                                </div>
+                                <!-- Border Left Color -->
+                                <div class="prop-control">
+                                    <label for="border-left-color" class="float-left">Border left color:</label>
+                                    <p class="unit float-right">#10b63e</p>
+                                    <div class="overflow-hidden">
+                                        <input type="color" value="#10b63e" name="border" id="border-left-color">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="half-width float-left">
+                            <!-- Border Style -->
+                            <div class="prop-control">
+                                <label for="border-style" class="float-left">Border style:</label>
+                                <div class="all float-right">
+                                    <input type="checkbox" name="border-all" id="border-style-all" data-show="borderStyleProp">
+                                    <label for="border-style-all"></label>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <select name="border" id="border-style">
+                                        <option>dotted</option>
+                                        <option>dashed</option>
+                                        <option>solid</option>
+                                        <option>double</option>
+                                        <option>groove</option>
+                                        <option>ridge</option>
+                                        <option>inset</option>
+                                        <option>outset</option>
+                                        <option>none</option>
+                                        <option>hidden</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="show-each" id="borderStyleProp">
+                                <!-- Border Top Style -->
+                                <div class="prop-control">
+                                    <label for="border-top-style" class="float-left">Border top style:</label>
+                                    <div class="overflow-hidden">
+                                        <select name="border" id="border-top-style">
+                                            <option>dotted</option>
+                                            <option>dashed</option>
+                                            <option>solid</option>
+                                            <option>double</option>
+                                            <option>groove</option>
+                                            <option>ridge</option>
+                                            <option>inset</option>
+                                            <option>outset</option>
+                                            <option>none</option>
+                                            <option>hidden</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Border Right Style -->
+                                <div class="prop-control">
+                                    <label for="border-right-style" class="float-left">Border right style:</label>
+                                    <div class="overflow-hidden">
+                                        <select name="border" id="border-right-style">
+                                            <option>dotted</option>
+                                            <option>dashed</option>
+                                            <option>solid</option>
+                                            <option>double</option>
+                                            <option>groove</option>
+                                            <option>ridge</option>
+                                            <option>inset</option>
+                                            <option>outset</option>
+                                            <option>none</option>
+                                            <option>hidden</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Border Bottom Style -->
+                                <div class="prop-control">
+                                    <label for="border-bottom-style" class="float-left">Border bottom style:</label>
+                                    <div class="overflow-hidden">
+                                        <select name="border" id="border-bottom-style">
+                                            <option>dotted</option>
+                                            <option>dashed</option>
+                                            <option>solid</option>
+                                            <option>double</option>
+                                            <option>groove</option>
+                                            <option>ridge</option>
+                                            <option>inset</option>
+                                            <option>outset</option>
+                                            <option>none</option>
+                                            <option>hidden</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Border Left Style -->
+                                <div class="prop-control">
+                                    <label for="border-left-style" class="float-left">Border left style:</label>
+                                    <div class="overflow-hidden">
+                                        <select name="border" id="border-left-style">
+                                            <option>dotted</option>
+                                            <option>dashed</option>
+                                            <option>solid</option>
+                                            <option>double</option>
+                                            <option>groove</option>
+                                            <option>ridge</option>
+                                            <option>inset</option>
+                                            <option>outset</option>
+                                            <option>none</option>
+                                            <option>hidden</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Border Radius -->
+                            <div class="prop-control">
+                                <label for="border-radius" class="float-left">Border radius:</label>
+                                <div class="all float-right">
+                                    <input type="checkbox" name="border-all" id="border-radius-all" data-show="borderRadiusProp">
+                                    <label for="border-radius-all"></label>
+                                </div>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="border" id="border-radius">
+                                </div>
+                            </div>
+                            <div class="show-each" id="borderRadiusProp">
+                                <!-- Border Top Right Radius -->
+                                <div class="prop-control">
+                                    <label for="border-top-right-radius" class="float-left">Border top right radius:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="border" id="border-top-right-radius">
+                                    </div>
+                                </div>
+                                <!-- Border Bottom Right Radius -->
+                                <div class="prop-control">
+                                    <label for="border-bottom-right-radius" class="float-left">Border bottom right radius:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="border" id="border-bottom-right-radius">
+                                    </div>
+                                </div>
+                                <!-- Border Bottom Left Radius -->
+                                <div class="prop-control">
+                                    <label for="border-bottom-left-radius" class="float-left">Border bottom left radius:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="border" id="border-bottom-left-radius">
+                                    </div>
+                                </div>
+                                <!-- Border Top Left Radius -->
+                                <div class="prop-control">
+                                    <label for="border-top-left-radius" class="float-left">Border top left radius:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="border" id="border-top-left-radius">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Box Shadow -->
+                <div class="collapsible">
+                    <h3>Box Shadow</h3>
+                    <div class="collapsible-content clearfix">
+                        <div class="half-width float-left">
+                            <!-- X Offset -->
+                            <div class="prop-control">
+                                <label for="shadow-xOffset" class="float-left">X offset:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="shadow" id="shadow-xOffset">
+                                </div>
+                            </div>
+                            <!-- Y Offset -->
+                            <div class="prop-control">
+                                <label for="shadow-yOffset" class="float-left">Y offset:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="shadow" id="shadow-yOffset">
+                                </div>
+                            </div>
+                            <!-- Type -->
+                            <div class="prop-control">
+                                <label for="shadow-type" class="float-left">Type</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <select name="shadow" id="shadow-type">
+                                        <option>Outset</option>
+                                        <option>Inset</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="half-width float-left">
+                            <!-- Blur -->
+                            <div class="prop-control">
+                                <label for="shadow-blur" class="float-left">Blur:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="shadow" id="shadow-blur">
+                                </div>
+                            </div>
+                            <!-- Spread -->
+                            <div class="prop-control">
+                                <label for="shadow-spread" class="float-left">Spread:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="shadow" id="shadow-spread">
+                                </div>
+                            </div>
+                            <!-- Shadow Color -->
+                            <div class="prop-control">
+                                <label for="shadow-color" class="float-left">Shadow color:</label>
+                                <p class="unit float-right">#10b63e</p>
+                                <div class="overflow-hidden">
+                                    <input type="color" value="#10b63e" name="shadow" id="shadow-color">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="preview-side" class="main-section float-left">
+            <div class="section-body"></div>
+        </section>
+    </div>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
