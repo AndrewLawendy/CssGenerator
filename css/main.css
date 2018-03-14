@@ -7,6 +7,7 @@ header .logo{height: 75px;float: left;}
 header ul{overflow: hidden;height:75px}
 header ul li{list-style-type: none;cursor: pointer}
 /*Main Classes*/
+[data-hide-condition]{display: none}
 h3{font-size: 1.5rem}
 .float-right{float: right}
 .float-left{float: left}
@@ -14,8 +15,8 @@ h3{font-size: 1.5rem}
 .overflow-hidden{overflow: hidden;}
 .half-width{width:50%;-webkit-box-sizing: border-box;box-sizing: border-box}
 .container{width:100%;padding: 15px;-webkit-box-sizing: border-box;box-sizing: border-box}
-.main-section{overflow-y:auto;height:100%;padding:15px;-webkit-box-sizing:border-box;box-sizing:border-box}
-.section-body{border-radius:7px;padding: 15px}
+.main-section{height:calc(100vh - 105px);padding:15px;-webkit-box-sizing:border-box;box-sizing:border-box}
+.section-body{border-radius:7px;padding: 15px;height: 100%;overflow-y: auto;-webkit-box-sizing:border-box;box-sizing:border-box}
 .btn{padding: 0 10px 5px;border-radius:5px;border: 0;outline:none;color: #fff;font-size: 1.2rem;-webkit-box-shadow: none;box-shadow: none;cursor: pointer;-webkit-transition:all .15s;-o-transition:all .15s;transition:all .15s}
 .btn-primary{background: #00b9ff}
 .btn-secondary{background:#10b63e}

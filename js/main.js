@@ -26,9 +26,17 @@ var initCssGenerator = function () {
     $('.collapsible h3').on('click', function () {
         var collapsible = $(this).closest('.collapsible'),
             content = collapsible.find('.collapsible-content');
-        $('.show-each').slideUp('fast');
+        collapsible.find('.show-each').slideUp('fast');
+        collapsible.find('input[type="checkbox"]:checked').prop('checked', false);
         collapsible.toggleClass('active');
         content.slideToggle('fast');
+    });
+
+    $('select[data-hide]').on('change', function () {
+        var condition = $(this).data('hide'),
+            target = $('[data-hide-condition="' + condition + '"]'),
+            value = $(this).val().toLowerCase();
+        value == condition ? target.slideUp('fast') : target.slideDown('fast');
     });
 }
 

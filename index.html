@@ -70,9 +70,9 @@
                         </div>
                     </div>
                 </div>
-                <!-- Padding -->
+                <!-- Padding / Margin -->
                 <div class="collapsible">
-                    <h3>Padding/ Margin</h3>
+                    <h3>Padding / Margin</h3>
                     <div class="collapsible-content clearfix">
                         <div class="half-width float-left">
                             <!-- Padding -->
@@ -98,32 +98,77 @@
                                 </div>
                                 <!-- Padding Right -->
                                 <div class="prop-control">
-                                        <label for="padding-right" class="float-left">Padding right:</label>
-                                        <p class="unit float-right">px</p>
-                                        <div class="overflow-hidden">
-                                            <input type="number" name="padding" id="padding-right">
-                                        </div>
+                                    <label for="padding-right" class="float-left">Padding right:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="padding" id="padding-right">
                                     </div>
-                                    <!-- Padding Bottom -->
+                                </div>
+                                <!-- Padding Bottom -->
                                 <div class="prop-control">
-                                        <label for="padding-bottom" class="float-left">Padding bottom:</label>
-                                        <p class="unit float-right">px</p>
-                                        <div class="overflow-hidden">
-                                            <input type="number" name="border" id="padding-bottom">
-                                        </div>
+                                    <label for="padding-bottom" class="float-left">Padding bottom:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="border" id="padding-bottom">
                                     </div>
-                                    <!-- Padding Left -->
+                                </div>
+                                <!-- Padding Left -->
                                 <div class="prop-control">
-                                        <label for="padding-left" class="float-left">Padding left:</label>
-                                        <p class="unit float-right">px</p>
-                                        <div class="overflow-hidden">
-                                            <input type="number" name="border" id="padding-left">
-                                        </div>
+                                    <label for="padding-left" class="float-left">Padding left:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="padding" id="padding-left">
                                     </div>
+                                </div>
                             </div>
                         </div>
                         <div class="half-width float-left">
-                            
+                            <!-- Margin -->
+                            <div class="prop-control">
+                                <label for="margin-general" class="float-left">Margin</label>
+                                <div class="all float-right">
+                                    <input type="checkbox" name="margin-all" id="margin-all" data-show="marginProp">
+                                    <label for="margin-all"></label>
+                                </div>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="margin" id="margin-general">
+                                </div>
+                            </div>
+                            <div class="show-each" id="marginProp">
+                                <!-- Margin Top -->
+                                <div class="prop-control">
+                                    <label for="margin-top" class="float-left">Margin top:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="margin" id="margin-top">
+                                    </div>
+                                </div>
+                                <!-- Margin Right -->
+                                <div class="prop-control">
+                                    <label for="margin-right" class="float-left">Margin right:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="margin" id="margin-right">
+                                    </div>
+                                </div>
+                                <!-- Margin Bottom -->
+                                <div class="prop-control">
+                                    <label for="margin-bottom" class="float-left">Margin bottom:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="margin" id="margin-bottom">
+                                    </div>
+                                </div>
+                                <!-- Margin Left -->
+                                <div class="prop-control">
+                                    <label for="margin-left" class="float-left">Margin left:</label>
+                                    <p class="unit float-right">px</p>
+                                    <div class="overflow-hidden">
+                                        <input type="number" name="margin" id="margin-left">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -395,7 +440,6 @@
                             <!-- Type -->
                             <div class="prop-control">
                                 <label for="shadow-type" class="float-left">Type</label>
-                                <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
                                     <select name="shadow" id="shadow-type">
                                         <option>Outset</option>
@@ -432,15 +476,178 @@
                         </div>
                     </div>
                 </div>
-            </div>
+                <!-- Positions -->
+                <div class="collapsible">
+                    <h3>Positions</h3>
+                    <div class="collapsible-content clearfix">
+                        <div class="half-width float-left">
+                            <!-- Positions -->
+                            <div class="prop-control">
+                                <label for="position-type" class="float-left">Position</label>
+                                <div class="overflow-hidden">
+                                    <select name="shadow" id="shadow-type" data-hide="static">
+                                        <option>Static</option>
+                                        <option>Relative</option>
+                                        <option>Absolute</option>
+                                        <option>Fixed</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="half-width float-left" data-hide-condition="static">
+                            <!-- Top -->
+                            <div class="prop-control">
+                                <label for="position-top" class="float-left">Top:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="position" id="position-top">
+                                </div>
+                            </div>
+                            <!-- Right -->
+                            <div class="prop-control">
+                                <label for="position-right" class="float-left">Right:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="position" id="position-right">
+                                </div>
+                            </div>
+                            <!-- Bottom -->
+                            <div class="prop-control">
+                                <label for="position-bottom" class="float-left">Bottom:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="position" id="position-bottom">
+                                </div>
+                            </div>
+                            <!-- Left -->
+                            <div class="prop-control">
+                                <label for="position-left" class="float-left">Left:</label>
+                                <p class="unit float-right">px</p>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="position" id="position-left">
+                                </div>
+                            </div>
+                            <!-- Z Index -->
+                            <div class="prop-control">
+                                <label for="z-index" class="float-left">Z index:</label>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="position" id="z-index">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Box -->
+                <div class="collapsible">
+                    <h3>Box</h3>
+                    <div class="collapsible-content clearfix">
+                        <div class="half-width float-left">
+                            <!-- Display -->
+                            <div class="prop-control">
+                                <label for="display-type" class="float-left">Display</label>
+                                <div class="overflow-hidden">
+                                    <select name="shadow" id="display-type">
+                                        <option>Block</option>
+                                        <option>Inline Block</option>
+                                        <option>Inline</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Box Sizing -->
+                            <div class="prop-control">
+                                <label for="box-sizing" class="float-left">Box sizing</label>
+                                <div class="overflow-hidden">
+                                    <select name="shadow" id="box-sizing">
+                                        <option>Content Box</option>
+                                        <option>Border box</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Overflow -->
+                            <div class="prop-control">
+                                <label for="overflow" class="float-left">Overflow:</label>
+                                <div class="all float-right">
+                                    <input type="checkbox" name="overflow-all" id="overflow-all" data-show="overflowProp">
+                                    <label for="overflow-all"></label>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <select name="overflow" id="overflow">
+                                        <option>Visible</option>
+                                        <option>Hidden</option>
+                                        <option>Scroll</option>
+                                        <option>Auto</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="show-each" id="overflowProp">
+                                <!-- Overflow-X -->
+                                <div class="prop-control">
+                                    <label for="overflow-x" class="float-left">Overflow-x:</label>
+                                    <div class="overflow-hidden">
+                                        <select name="overflow" id="overflow-x">
+                                            <option>Visible</option>
+                                            <option>Hidden</option>
+                                            <option>Scroll</option>
+                                            <option>Auto</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <!-- Overflow-Y -->
+                                <div class="prop-control">
+                                    <label for="overflow-y" class="float-left">Overflow-y:</label>
+                                    <div class="overflow-hidden">
+                                        <select name="overflow" id="overflow-y">
+                                            <option>Visible</option>
+                                            <option>Hidden</option>
+                                            <option>Scroll</option>
+                                            <option>Auto</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="half-width float-left">
+                            <!-- Float -->
+                            <div class="prop-control">
+                                <label for="float" class="float-left">Float</label>
+                                <div class="overflow-hidden">
+                                    <select name="shadow" id="float">
+                                        <option>None</option>
+                                        <option>Right</option>
+                                        <option>Left</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Clear -->
+                            <div class="prop-control">
+                                <label for="clear" class="float-left">Clear</label>
+                                <div class="overflow-hidden">
+                                    <select name="shadow" id="clear">
+                                        <option>None</option>
+                                        <option>Clear Right</option>
+                                        <option>Clear Left</option>
+                                        <option>Clear Both</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- Opacity -->
+                            <div class="prop-control">
+                                <label for="opacity" class="float-left">Opacity</label>
+                                <div class="overflow-hidden">
+                                    <input type="range" name="opacity" id="oapcity">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </section>
         <section id="preview-side" class="main-section float-left">
             <div class="section-body"></div>
         </section>
-    </div>
+        </div>
 
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/main.js"></script>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/main.js"></script>
 </body>
 
 </html>
