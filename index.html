@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Link Template</title>
+    <title>Css Generator</title>
     <meta name="description" content="">
     <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <meta name="viewport" content="width=device-width">
@@ -14,19 +14,40 @@
 
 <body>
     <header class="clearfix">
-        <img class="logo" src="images/link-logo.png" alt="Link Logo">
-        <nav>
+        <img class="logo" src="images/CSS3_logo.png" alt="Link Logo">
+        <nav class="overflow-hidden">
             <ul class="vertical-middle">
-                <li class="btn btn-primary">Reset</li>
+                <li class="btn btn-primary" id="reset">Reset</li>
             </ul>
         </nav>
     </header>
     <div class="container clearfix">
         <section id="control-side" class="main-section float-right">
             <div class="section-body">
-                <div class="btn-wrp">
-                    <button id="collapseAll" type="button" class="btn btn-primary">Collapse all</button>
-                    <button id="expandAll" type="button" class="btn btn-secondary">Expand all</button>
+                <div class="btn-wrp clearfix">
+                    <button id="collapseAll" type="button" class="btn btn-primary float-right">Collapse all</button>
+                    <button id="expandAll" type="button" class="btn btn-secondary float-right">Expand all</button>
+                    <div class="overflow-hidden">
+                        <div class="half-width float-left">
+                            <label class="float-left" for="custom-selector">Custom Selector</label>
+                            <div class="v-switch float-right">
+                                <input type="checkbox" name="custom-selector" id="selector-type">
+                                <label for="selector-type" data-false="Class" data-true="Id"></label>
+                            </div>
+                            <div class="overflow-hidden">
+                                <input type="text" name="custom-selector" id="custom-selector">
+                            </div>
+                        </div>
+                        <div class="half-width float-left">
+                            <label class="float-left" for="model-template">Model Template:</label>
+                            <div class="overflow-hidden">
+                                <select name="model-template" id="model-template">
+                                    <option>None</option>
+                                    <option>Form</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <!-- Dimensions -->
                 <div class="collapsible">
@@ -38,7 +59,7 @@
                                 <label for="dimensions-width" class="float-left">Width:</label>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="border" id="dimensions-width">
+                                    <input type="number" name="dimensions" id="dimensions-width" data-box="box-position,width">
                                 </div>
                             </div>
                             <!-- Min Width -->
@@ -46,7 +67,7 @@
                                 <label for="dimensions-min-width" class="float-left">Min width:</label>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="border" id="dimensions-min-width">
+                                    <input type="number" name="dimensions" id="dimensions-min-width" data-box="box-position,min-width">
                                 </div>
                             </div>
                         </div>
@@ -56,7 +77,7 @@
                                 <label for="dimensions-height" class="float-left">Height:</label>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="border" id="dimensions-height">
+                                    <input type="number" name="dimensions" id="dimensions-height" data-box="box-position,height">
                                 </div>
                             </div>
                             <!-- Min Height -->
@@ -64,7 +85,7 @@
                                 <label for="dimensions-min-height" class="float-left">Min height:</label>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="border" id="dimensions-min-height">
+                                    <input type="number" name="dimensions" id="dimensions-min-height" data-box="box-position,min-height">
                                 </div>
                             </div>
                         </div>
@@ -78,13 +99,13 @@
                             <!-- Padding -->
                             <div class="prop-control">
                                 <label for="padding-general" class="float-left">Padding</label>
-                                <div class="all float-right">
+                                <div class="v-switch float-right">
                                     <input type="checkbox" name="padding-all" id="padding-all" data-show="paddingProp">
-                                    <label for="padding-all"></label>
+                                    <label for="padding-all" data-false="All" data-true="Each"></label>
                                 </div>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="border" id="padding-general">
+                                    <input type="number" name="padding" id="padding-general" data-box="box-padding,padding">
                                 </div>
                             </div>
                             <div class="show-each" id="paddingProp">
@@ -93,7 +114,7 @@
                                     <label for="padding-top" class="float-left">Padding top:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="padding" id="padding-top">
+                                        <input type="number" name="padding" id="padding-top" data-box="box-padding,padding-top">
                                     </div>
                                 </div>
                                 <!-- Padding Right -->
@@ -101,7 +122,7 @@
                                     <label for="padding-right" class="float-left">Padding right:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="padding" id="padding-right">
+                                        <input type="number" name="padding" id="padding-right" data-box="box-padding,padding-right">
                                     </div>
                                 </div>
                                 <!-- Padding Bottom -->
@@ -109,7 +130,7 @@
                                     <label for="padding-bottom" class="float-left">Padding bottom:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="padding-bottom">
+                                        <input type="number" name="padding" id="padding-bottom" data-box="box-padding,padding-bottom">
                                     </div>
                                 </div>
                                 <!-- Padding Left -->
@@ -117,7 +138,7 @@
                                     <label for="padding-left" class="float-left">Padding left:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="padding" id="padding-left">
+                                        <input type="number" name="padding" id="padding-left" data-box="box-padding,padding-left">
                                     </div>
                                 </div>
                             </div>
@@ -126,13 +147,13 @@
                             <!-- Margin -->
                             <div class="prop-control">
                                 <label for="margin-general" class="float-left">Margin</label>
-                                <div class="all float-right">
+                                <div class="v-switch float-right">
                                     <input type="checkbox" name="margin-all" id="margin-all" data-show="marginProp">
-                                    <label for="margin-all"></label>
+                                    <label for="margin-all" data-false="All" data-true="Each"></label>
                                 </div>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="margin" id="margin-general">
+                                    <input type="number" name="margin" id="margin-general" data-box="box-margin,padding">
                                 </div>
                             </div>
                             <div class="show-each" id="marginProp">
@@ -141,7 +162,7 @@
                                     <label for="margin-top" class="float-left">Margin top:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="margin" id="margin-top">
+                                        <input type="number" name="margin" id="margin-top" data-box="box-margin,padding-top">
                                     </div>
                                 </div>
                                 <!-- Margin Right -->
@@ -149,7 +170,7 @@
                                     <label for="margin-right" class="float-left">Margin right:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="margin" id="margin-right">
+                                        <input type="number" name="margin" id="margin-right" data-box="box-margin,padding-right">
                                     </div>
                                 </div>
                                 <!-- Margin Bottom -->
@@ -157,7 +178,7 @@
                                     <label for="margin-bottom" class="float-left">Margin bottom:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="margin" id="margin-bottom">
+                                        <input type="number" name="margin" id="margin-bottom" data-box="box-margin,padding-bottom">
                                     </div>
                                 </div>
                                 <!-- Margin Left -->
@@ -165,7 +186,7 @@
                                     <label for="margin-left" class="float-left">Margin left:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="margin" id="margin-left">
+                                        <input type="number" name="margin" id="margin-left" data-box="box-margin,padding-left">
                                     </div>
                                 </div>
                             </div>
@@ -180,13 +201,13 @@
                             <!-- Border Width -->
                             <div class="prop-control">
                                 <label for="border-width" class="float-left">Border width:</label>
-                                <div class="all float-right">
+                                <div class="v-switch float-right">
                                     <input type="checkbox" name="border-all" id="border-width-all" data-show="borderWidthProp">
-                                    <label for="border-width-all"></label>
+                                    <label for="border-width-all" data-false="All" data-true="Each"></label>
                                 </div>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="border" id="border-width">
+                                    <input type="number" name="border" id="border-width" data-box="box-border,padding">
                                 </div>
                             </div>
                             <div class="show-each" id="borderWidthProp">
@@ -195,7 +216,7 @@
                                     <label for="border-top-width" class="float-left">Border top width:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-top-width">
+                                        <input type="number" name="border" id="border-top-width" data-box="box-border,padding-top">
                                     </div>
                                 </div>
                                 <!-- Border Right Width -->
@@ -203,7 +224,7 @@
                                     <label for="border-right-width" class="float-left">Border right width:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-right-width">
+                                        <input type="number" name="border" id="border-right-width" data-box="box-border,padding-right">
                                     </div>
                                 </div>
                                 <!-- Border Bottom Width -->
@@ -211,7 +232,7 @@
                                     <label for="border-bottom-width" class="float-left">Border bottom width:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-bottom-width">
+                                        <input type="number" name="border" id="border-bottom-width" data-box="box-border,padding-bottom">
                                     </div>
                                 </div>
                                 <!-- Border Left Width -->
@@ -219,20 +240,20 @@
                                     <label for="border-left-width" class="float-left">Border left width:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-left-width">
+                                        <input type="number" name="border" id="border-left-width" data-box="box-border,padding-left">
                                     </div>
                                 </div>
                             </div>
                             <!-- Border Color -->
                             <div class="prop-control">
                                 <label for="border-color" class="float-left">Border color:</label>
-                                <div class="all float-right">
+                                <div class="v-switch float-right">
                                     <input type="checkbox" name="border-all" id="border-color-all" data-show="borderColorProp">
-                                    <label for="border-color-all"></label>
+                                    <label for="border-color-all" data-false="All" data-true="Each"></label>
                                 </div>
                                 <p class="unit float-right">#10b63e</p>
                                 <div class="overflow-hidden">
-                                    <input type="color" value="#10b63e" name="border" id="border-color">
+                                    <input type="color" value="#10b63e" name="border" id="border-color" data-box="box-border,border-color">
                                 </div>
                             </div>
                             <div class="show-each" id="borderColorProp">
@@ -241,7 +262,7 @@
                                     <label for="border-top-color" class="float-left">Border top color:</label>
                                     <p class="unit float-right">#10b63e</p>
                                     <div class="overflow-hidden">
-                                        <input type="color" value="#10b63e" name="border" id="border-top-color">
+                                        <input type="color" value="#10b63e" name="border" id="border-top-color" data-box="box-border,border-top-color">
                                     </div>
                                 </div>
                                 <!-- Border Right Color -->
@@ -249,7 +270,7 @@
                                     <label for="border-right-color" class="float-left">Border right color:</label>
                                     <p class="unit float-right">#10b63e</p>
                                     <div class="overflow-hidden">
-                                        <input type="color" value="#10b63e" name="border" id="border-right-color">
+                                        <input type="color" value="#10b63e" name="border" id="border-right-color" data-box="box-border,border-right-color">
                                     </div>
                                 </div>
                                 <!-- Border Bottom Color -->
@@ -257,7 +278,7 @@
                                     <label for="border-bottom-color" class="float-left">Border bottom color:</label>
                                     <p class="unit float-right">#10b63e</p>
                                     <div class="overflow-hidden">
-                                        <input type="color" value="#10b63e" name="border" id="border-bottom-color">
+                                        <input type="color" value="#10b63e" name="border" id="border-bottom-color" data-box="box-border,border-bottom-color">
                                     </div>
                                 </div>
                                 <!-- Border Left Color -->
@@ -265,7 +286,7 @@
                                     <label for="border-left-color" class="float-left">Border left color:</label>
                                     <p class="unit float-right">#10b63e</p>
                                     <div class="overflow-hidden">
-                                        <input type="color" value="#10b63e" name="border" id="border-left-color">
+                                        <input type="color" value="#10b63e" name="border" id="border-left-color" data-box="box-border,border-left-color">
                                     </div>
                                 </div>
                             </div>
@@ -274,12 +295,12 @@
                             <!-- Border Style -->
                             <div class="prop-control">
                                 <label for="border-style" class="float-left">Border style:</label>
-                                <div class="all float-right">
+                                <div class="v-switch float-right">
                                     <input type="checkbox" name="border-all" id="border-style-all" data-show="borderStyleProp">
-                                    <label for="border-style-all"></label>
+                                    <label for="border-style-all" data-false="All" data-true="Each"></label>
                                 </div>
                                 <div class="overflow-hidden">
-                                    <select name="border" id="border-style">
+                                    <select name="border" id="border-style" data-box="box-border,border-style">
                                         <option>dotted</option>
                                         <option>dashed</option>
                                         <option>solid</option>
@@ -298,7 +319,7 @@
                                 <div class="prop-control">
                                     <label for="border-top-style" class="float-left">Border top style:</label>
                                     <div class="overflow-hidden">
-                                        <select name="border" id="border-top-style">
+                                        <select name="border" id="border-top-style" data-box="box-border,border-top-style">
                                             <option>dotted</option>
                                             <option>dashed</option>
                                             <option>solid</option>
@@ -316,7 +337,7 @@
                                 <div class="prop-control">
                                     <label for="border-right-style" class="float-left">Border right style:</label>
                                     <div class="overflow-hidden">
-                                        <select name="border" id="border-right-style">
+                                        <select name="border" id="border-right-style" data-box="box-border,border-right-style">
                                             <option>dotted</option>
                                             <option>dashed</option>
                                             <option>solid</option>
@@ -334,7 +355,7 @@
                                 <div class="prop-control">
                                     <label for="border-bottom-style" class="float-left">Border bottom style:</label>
                                     <div class="overflow-hidden">
-                                        <select name="border" id="border-bottom-style">
+                                        <select name="border" id="border-bottom-style" data-box="box-border,border-bottom-style">
                                             <option>dotted</option>
                                             <option>dashed</option>
                                             <option>solid</option>
@@ -352,7 +373,7 @@
                                 <div class="prop-control">
                                     <label for="border-left-style" class="float-left">Border left style:</label>
                                     <div class="overflow-hidden">
-                                        <select name="border" id="border-left-style">
+                                        <select name="border" id="border-left-style" data-box="box-border,border-left-style">
                                             <option>dotted</option>
                                             <option>dashed</option>
                                             <option>solid</option>
@@ -370,13 +391,13 @@
                             <!-- Border Radius -->
                             <div class="prop-control">
                                 <label for="border-radius" class="float-left">Border radius:</label>
-                                <div class="all float-right">
+                                <div class="v-switch float-right">
                                     <input type="checkbox" name="border-all" id="border-radius-all" data-show="borderRadiusProp">
-                                    <label for="border-radius-all"></label>
+                                    <label for="border-radius-all" data-false="All" data-true="Each"></label>
                                 </div>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="border" id="border-radius">
+                                    <input type="number" name="border" id="border-radius" data-box="box-border,border-radius">
                                 </div>
                             </div>
                             <div class="show-each" id="borderRadiusProp">
@@ -385,7 +406,7 @@
                                     <label for="border-top-right-radius" class="float-left">Border top right radius:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-top-right-radius">
+                                        <input type="number" name="border" id="border-top-right-radius" data-box="box-border,border-top-right-radius">
                                     </div>
                                 </div>
                                 <!-- Border Bottom Right Radius -->
@@ -393,7 +414,7 @@
                                     <label for="border-bottom-right-radius" class="float-left">Border bottom right radius:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-bottom-right-radius">
+                                        <input type="number" name="border" id="border-bottom-right-radius" data-box="box-border,border-bottom-right-radius">
                                     </div>
                                 </div>
                                 <!-- Border Bottom Left Radius -->
@@ -401,7 +422,7 @@
                                     <label for="border-bottom-left-radius" class="float-left">Border bottom left radius:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-bottom-left-radius">
+                                        <input type="number" name="border" id="border-bottom-left-radius" data-box="box-border,border-bottom-left-radius">
                                     </div>
                                 </div>
                                 <!-- Border Top Left Radius -->
@@ -409,7 +430,7 @@
                                     <label for="border-top-left-radius" class="float-left">Border top left radius:</label>
                                     <p class="unit float-right">px</p>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-top-left-radius">
+                                        <input type="number" name="border" id="border-top-left-radius" data-box="box-border,border-top-left-radius">
                                     </div>
                                 </div>
                             </div>
@@ -485,7 +506,7 @@
                             <div class="prop-control">
                                 <label for="position-type" class="float-left">Position</label>
                                 <div class="overflow-hidden">
-                                    <select name="shadow" id="shadow-type" data-hide="static">
+                                    <select name="position" id="position-type" data-hide="static" data-box="box-position,position">
                                         <option>Static</option>
                                         <option>Relative</option>
                                         <option>Absolute</option>
@@ -500,7 +521,7 @@
                                 <label for="position-top" class="float-left">Top:</label>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="position" id="position-top">
+                                    <input type="number" name="position" id="position-top" data-box="box-position,top">
                                 </div>
                             </div>
                             <!-- Right -->
@@ -508,7 +529,7 @@
                                 <label for="position-right" class="float-left">Right:</label>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="position" id="position-right">
+                                    <input type="number" name="position" id="position-right" data-box="box-position,right">
                                 </div>
                             </div>
                             <!-- Bottom -->
@@ -516,7 +537,7 @@
                                 <label for="position-bottom" class="float-left">Bottom:</label>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="position" id="position-bottom">
+                                    <input type="number" name="position" id="position-bottom" data-box="box-position,bottom">
                                 </div>
                             </div>
                             <!-- Left -->
@@ -524,14 +545,14 @@
                                 <label for="position-left" class="float-left">Left:</label>
                                 <p class="unit float-right">px</p>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="position" id="position-left">
+                                    <input type="number" name="position" id="position-left" data-box="box-position,left">
                                 </div>
                             </div>
                             <!-- Z Index -->
                             <div class="prop-control">
                                 <label for="z-index" class="float-left">Z index:</label>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="position" id="z-index">
+                                    <input type="number" name="position" id="z-index" data-box="box-position,z-index">
                                 </div>
                             </div>
                         </div>
@@ -546,7 +567,7 @@
                             <div class="prop-control">
                                 <label for="display-type" class="float-left">Display</label>
                                 <div class="overflow-hidden">
-                                    <select name="shadow" id="display-type">
+                                    <select name="box" id="display-type"  data-box="box-position,display">
                                         <option>Block</option>
                                         <option>Inline Block</option>
                                         <option>Inline</option>
@@ -557,7 +578,7 @@
                             <div class="prop-control">
                                 <label for="box-sizing" class="float-left">Box sizing</label>
                                 <div class="overflow-hidden">
-                                    <select name="shadow" id="box-sizing">
+                                    <select name="box" id="box-sizing" data-box="box-position,box-sizing">
                                         <option>Content Box</option>
                                         <option>Border box</option>
                                     </select>
@@ -566,12 +587,12 @@
                             <!-- Overflow -->
                             <div class="prop-control">
                                 <label for="overflow" class="float-left">Overflow:</label>
-                                <div class="all float-right">
+                                <div class="v-switch float-right">
                                     <input type="checkbox" name="overflow-all" id="overflow-all" data-show="overflowProp">
-                                    <label for="overflow-all"></label>
+                                    <label for="overflow-all" data-false="All" data-true="Each"></label>
                                 </div>
                                 <div class="overflow-hidden">
-                                    <select name="overflow" id="overflow">
+                                    <select name="box" id="overflow" data-box="box-position,overflow">
                                         <option>Visible</option>
                                         <option>Hidden</option>
                                         <option>Scroll</option>
@@ -584,7 +605,7 @@
                                 <div class="prop-control">
                                     <label for="overflow-x" class="float-left">Overflow-x:</label>
                                     <div class="overflow-hidden">
-                                        <select name="overflow" id="overflow-x">
+                                        <select name="box" id="overflow-x" data-box="box-position,overflow-x">
                                             <option>Visible</option>
                                             <option>Hidden</option>
                                             <option>Scroll</option>
@@ -596,7 +617,7 @@
                                 <div class="prop-control">
                                     <label for="overflow-y" class="float-left">Overflow-y:</label>
                                     <div class="overflow-hidden">
-                                        <select name="overflow" id="overflow-y">
+                                        <select name="box" id="overflow-y" data-box="box-position,overflow-y">
                                             <option>Visible</option>
                                             <option>Hidden</option>
                                             <option>Scroll</option>
@@ -611,7 +632,7 @@
                             <div class="prop-control">
                                 <label for="float" class="float-left">Float</label>
                                 <div class="overflow-hidden">
-                                    <select name="shadow" id="float">
+                                    <select name="box" id="float" data-box="box-position,float">
                                         <option>None</option>
                                         <option>Right</option>
                                         <option>Left</option>
@@ -622,7 +643,7 @@
                             <div class="prop-control">
                                 <label for="clear" class="float-left">Clear</label>
                                 <div class="overflow-hidden">
-                                    <select name="shadow" id="clear">
+                                    <select name="box" id="clear" data-box="box-position,clear">
                                         <option>None</option>
                                         <option>Clear Right</option>
                                         <option>Clear Left</option>
@@ -634,7 +655,7 @@
                             <div class="prop-control">
                                 <label for="opacity" class="float-left">Opacity</label>
                                 <div class="overflow-hidden">
-                                    <input type="range" name="opacity" id="oapcity">
+                                    <input type="range" name="box" min="0" max="1" value="1" step=".1" id="oapcity" data-box="box-position,opacity">
                                 </div>
                             </div>
                         </div>
@@ -642,7 +663,22 @@
                 </div>
         </section>
         <section id="preview-side" class="main-section float-left">
-            <div class="section-body"></div>
+            <div class="section-body">
+                <div id="box-model" data-show-template="None" class="active">
+                    <div id="box-position">
+                        <div id="box-margin">
+                            <div id="box-border">
+                                <div id="box-padding">
+                                    <div id="box-content">
+                                        Simple Text
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="form-template" data-show-template="Form"></div>
+            </div>
         </section>
         </div>
 
