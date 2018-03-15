@@ -67,9 +67,9 @@ var initCssGenerator = function () {
         $('.collapsible-content').slideDown('fast');
     });
 
-    $('#reset').on('click',function(){
+    $('#reset').on('click', function () {
         $('.prop-control input').val('');
-        $('.prop-control select').prop('selectedIndex',0);
+        $('.prop-control select').prop('selectedIndex', 0);
     });
 
     $('.prop-control [class*="switch"] input[data-show]').on('change', function () {
@@ -106,14 +106,30 @@ var initCssGenerator = function () {
         var condition = $(this).data('hide'),
             target = $('[data-hide-condition="' + condition + '"]'),
             value = $(this).val().toLowerCase();
-        value == condition ? target.slideUp('fast') : target.slideDown('fast');
+        value == condition ? target.slideUp('fast').find('input').val('').change() : target.slideDown('fast');
     });
 
-    $('[data-box]').on('keyup change', function () {
-        var dataBox = $(this).data('box').split(','),
+    $('[data-control]').on('keyup change', function () {
+        var dataBox = $(this).data('control').split(','),
             selector = dataBox[0],
             prop = dataBox[1],
-            val = $(this).val();
+            val = $(this).val(),
+            unit = val != '' && !isNaN(val) ? $(this).closest('.prop-control').find('.unit select').val() : '';
+        $('#' + selector).css(prop, val + unit);
+    });
+
+    $('.unit select').on('change', function () {
+        $(this).closest('.prop-control').find('input').keyup();
+    });
+
+    $('[data-collective]').on('change keyup', function () {
+        var collapsibleContent = $(this).closest('.collapsible-content'),
+            dataBox = collapsibleContent.data('collective').split(','),
+            selector = dataBox[0],
+            prop = dataBox[1],
+            val = collapsibleContent.find('.overflow-hidden>input,.overflow-hidden>select').map(function () {
+                return $(this).val()
+            });
         $('#' + selector).css(prop, val);
     });
 }
