@@ -79,7 +79,7 @@ var initCssGenerator = function () {
 
     $('.prop-control input[type="color"]').on('change', function () {
         var propControl = $(this).closest('.prop-control'),
-            propUnit = propControl.find('.unit'),
+            propUnit = propControl.find('.input-display'),
             colorValue = $(this).val();
         propUnit.text(colorValue).css('background', colorValue);
     });
@@ -128,8 +128,8 @@ var initCssGenerator = function () {
             selector = dataBox[0],
             prop = dataBox[1],
             val = collapsibleContent.find('.overflow-hidden>input,.overflow-hidden>select').map(function () {
-                return $(this).val()
-            });
+                return $(this).val() != 'Outset' && $(this).val() != '' ? $(this).val() + $(this).closest('.prop-control').find('.unit select').val() : '';
+            }).get().join(' ').replace(/undefined/g, '');
         $('#' + selector).css(prop, val);
     });
 }
