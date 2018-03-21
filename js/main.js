@@ -70,6 +70,7 @@ var initCssGenerator = function () {
     $('#reset').on('click', function () {
         $('.prop-control input').val('');
         $('.prop-control select').prop('selectedIndex', 0);
+        $('#preview-side [style]').removeAttr('style');
     });
 
     $('.prop-control [class*="switch"] input[data-show]').on('change', function () {
