@@ -347,7 +347,7 @@
                                     </select>
                                 </div>
                                 <div class="overflow-hidden">
-                                    <input type="number" name="border" id="border-width" data-control="padding,box-border">
+                                    <input type="number" name="border" id="border-width" data-control="border">
                                 </div>
                             </div>
                             <div class="show-each" id="borderWidthProp">
@@ -365,7 +365,7 @@
                                         </select>
                                     </div>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-top-width" data-control="padding-top,box-border">
+                                        <input type="number" name="border" id="border-top-width" data-control="padding-top-width">
                                     </div>
                                 </div>
                                 <!-- Border Right Width -->
@@ -382,7 +382,7 @@
                                         </select>
                                     </div>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-right-width" data-control="padding-right,box-border">
+                                        <input type="number" name="border" id="border-right-width" data-control="border-right-width">
                                     </div>
                                 </div>
                                 <!-- Border Bottom Width -->
@@ -399,7 +399,7 @@
                                         </select>
                                     </div>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-bottom-width" data-control="padding-bottom,box-border">
+                                        <input type="number" name="border" id="border-bottom-width" data-control="border-bottom-width">
                                     </div>
                                 </div>
                                 <!-- Border Left Width -->
@@ -416,7 +416,7 @@
                                         </select>
                                     </div>
                                     <div class="overflow-hidden">
-                                        <input type="number" name="border" id="border-left-width" data-control="padding-left,box-border">
+                                        <input type="number" name="border" id="border-left-width" data-control="border-left-width">
                                     </div>
                                 </div>
                             </div>
@@ -885,7 +885,7 @@
                                     <label for="overflow-all" data-false="All" data-true="Each"></label>
                                 </div>
                                 <div class="overflow-hidden">
-                                    <select name="box" id="overflow" data-control="box-position,overflow">
+                                    <select name="box" id="overflow" data-control="overflow">
                                         <option>Visible</option>
                                         <option>Hidden</option>
                                         <option>Scroll</option>
@@ -938,9 +938,9 @@
                                 <div class="overflow-hidden">
                                     <select name="box" id="clear" data-control="clear">
                                         <option>None</option>
-                                        <option>Clear Right</option>
-                                        <option>Clear Left</option>
-                                        <option>Clear Both</option>
+                                        <option>Right</option>
+                                        <option>Left</option>
+                                        <option>Both</option>
                                     </select>
                                 </div>
                             </div>
@@ -959,7 +959,7 @@
             <div class="section-body">
                 <div id="box-model" data-show-template="None" class="active">
                     <h3 class="marg-b15">Box Model</h3>
-                    <div id="box-position" data-prop-apply="width;min-width;height;min-height;position;top;right;bottom;left;box-shadow;display;box-sizing;float;clear;opacity">
+                    <div id="box-position" data-prop-apply="width;min-width;height;min-height;position;top;right;bottom;left;box-shadow;display;box-sizing;overflow;float;clear;opacity">
                         <div id="box-margin" data-prop-apply="margin">
                             <div id="box-border" data-prop-apply="border">
                                 <div id="box-padding" data-prop-apply="padding">
@@ -980,8 +980,8 @@
         <div id="css-collector"></div>
         <div id="generation-popup" class="vertical-middle">
             <div class="popup-content entering">
-                <pre></pre>
-                <div class="close-popup">
+                <p></p>
+                <div id="close-popup">
                     <?xml version='1.0' encoding='iso-8859-1'?>
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.9 21.9" xmlns:xlink="http://www.w3.org/1999/xlink"
                         enable-background="new 0 0 21.9 21.9">

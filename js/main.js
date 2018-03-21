@@ -1,62 +1,87 @@
-var cssGetter = function (prop, value, unit) {
+var cssGetter = function (prop, value) {
     var cssDeclaration = {
-        height: 'height:',
-        minHeight: 'min-height:',
-        width: 'width:',
-        minWidth: 'min-width:',
-        padding: 'padding:',
-        paddingTop: 'padding-top:',
-        paddingRight: 'padding-right:',
-        paddingBottom: 'padding-bottom:',
-        paddingLeft: 'padding-left:',
-        margin: 'margin:',
-        marginTop: 'margin-top:',
-        marginRight: 'margin-right:',
-        marginBottom: 'margin-bottom:',
-        marginLeft: 'margin-left:',
-        border: 'border:',
-        borderWidth: 'border-width',
-        borderTopWidth: 'border-top-width:',
-        borderRightWidth: 'border-right-width:',
-        borderBottomWidth: 'border-bottom-width:',
-        borderLeftWidth: 'border-left-width:',
-        borderColor: 'border-color',
-        borderTopColor: 'border-top-color',
-        borderRightColor: 'border-right-color',
-        borderBottomColor: 'border-bottom-color',
-        borderLeftColor: 'border-left-color',
-        borderStyle: 'border-style',
-        borderTopStyle: 'border-top-style',
-        borderRightStyle: 'border-right-style',
-        borderBottomStyle: 'border-bottom-style',
-        borderLeftStyle: 'border-left-style',
-        borderRadius: '-webkit-border-radius:;border-radius:',
-        borderTopRightRadius: '-webkit-border-top-right-radius:;border-top-right-radius:',
-        borderBottomRightRadius: '-webkit-border-bottom-right-radius:;border-bottom-right-radius:',
-        borderBottomLeftRadius: '-webkit-border-bottom-left-radius:;border-bottom-left-radius:',
-        borderTopLeftRadius: '-webkit-border-top-left-radius:;border-top-left-radius:',
-        boxShadow: '-webkit-box-shadow:;box-shadow:',
-        position: 'position',
-        top: 'top',
-        right: 'right',
-        bottom: 'bottom',
-        left: 'left',
-        zIndex: 'z-index',
-        display: 'display',
-        boxSizing: '-webkit-box-sizing:;box-sizing:',
-        overflow: 'overflow',
-        overflowX: 'overflow-x',
-        overflowY: 'overflow-y',
-        float: 'float',
-        clear: 'clear',
-        opacity: 'opacity'
+        'height': 'height:',
+        'min-height': 'min-height:',
+        'width': 'width:',
+        'min-width': 'min-width:',
+        'padding': 'padding:',
+        'padding-top': 'padding-top:',
+        'padding-right': 'padding-right:',
+        'padding-bottom': 'padding-bottom:',
+        'padding-left': 'padding-left:',
+        'margin': 'margin:',
+        'margin-top': 'margin-top:',
+        'margin-right': 'margin-right:',
+        'margin-bottom': 'margin-bottom:',
+        'margin-left': 'margin-left:',
+        'border': 'border:',
+        'border-width': 'border-width:',
+        'border-top-width': 'border-top-width:',
+        'border-right-width': 'border-right-width:',
+        'border-bottom-width': 'border-bottom-width:',
+        'border-left-width': 'border-left-width:',
+        'border-color': 'border-color:',
+        'border-top-color': 'border-top-color:',
+        'border-right-color': 'border-right-color:',
+        'border-bottom-color': 'border-bottom-color:',
+        'border-left-color': 'border-left-color:',
+        'border-style': 'border-style:',
+        'border-top-style': 'border-top-style:',
+        'border-right-style': 'border-right-style:',
+        'border-bottom-style': 'border-bottom-style:',
+        'border-left-style': 'border-left-style:',
+        'border-radius': '-webkit-border-radius:;border-radius:',
+        'border-top-right-radius': '-webkit-border-top-right-radius:;border-top-right-radius:',
+        'border-bottom-right-radius': '-webkit-border-bottom-right-radius:;border-bottom-right-radius:',
+        'border-bottom-left-radius': '-webkit-border-bottom-left-radius:;border-bottom-left-radius:',
+        'border-top-left-radius': '-webkit-border-top-left-radius:;border-top-left-radius:',
+        'box-shadow': '-webkit-box-shadow:;box-shadow:',
+        'position': 'position:',
+        'top': 'top:',
+        'right': 'right:',
+        'bottom': 'bottom:',
+        'left': 'left:',
+        'z-index': 'z-index:',
+        'display': 'display:',
+        'box-sizing': '-webkit-box-sizing:;box-sizing:',
+        'overflow': 'overflow:',
+        'overflow-x': 'overflow-x:',
+        'overflow-y': 'overflow-y:',
+        'float': 'float:',
+        'clear': 'clear:',
+        'opacity': 'opacity:'
     };
     return cssDeclaration[prop].split(';').map(function (x) {
-        return x + value + unit
+        return x + value;
     }).join(';');
 }
 
 var initCssGenerator = function () {
+    $('#generateCss').on('click', function () {
+        var collectionAttr = $('#css-collector').attr('style');
+        if (collectionAttr == undefined || collectionAttr == '') return alert('Add style to generate it');
+        var cssCollection = '{' + collectionAttr.split('; ').map(function (dec) {
+            var prop = dec.split(': ')[0],
+                value = dec.split(': ')[1].replace(';','');
+            return cssGetter(prop, value);
+        }).join(';') + '}';
+        $('#generation-popup .popup-content p').text(cssCollection);
+        $('#generation-popup').fadeIn();
+        $('#generation-popup .popup-content').on('click', function (e) {
+            e.stopPropagation()
+        });
+
+        function closePopUp() {
+            $('#generation-popup').delay(150).fadeOut(function () {
+                $('.popup-content').removeClass('leaving')
+            }).find('.popup-content').addClass('leaving');
+            $(document).off('keyup');
+        }
+        $('#generation-popup,#close-popup').on('click', closePopUp);
+        $(document).on('keyup', function (e) {
+            '27' == e.keyCode && closePopUp()
+        });
+    });
     $('#collapseAll').on('click', function () {
         $('.collapsible').removeClass('active');
         $('.collapsible-content,.show-each').slideUp('fast');
@@ -66,11 +91,10 @@ var initCssGenerator = function () {
         $('.collapsible').addClass('active');
         $('.collapsible-content').slideDown('fast');
     });
-
     $('#reset').on('click', function () {
         $('.prop-control input').val('');
         $('.prop-control select').prop('selectedIndex', 0);
-        $('#preview-side [style]').removeAttr('style');
+        $('#preview-side [data-show-template] [style],#css-collector').removeAttr('style');
     });
 
     $('.prop-control [class*="switch"] input[data-show]').on('change', function () {
@@ -114,11 +138,12 @@ var initCssGenerator = function () {
     $('[data-control]').on('keyup change', function () {
         var dataBox = $(this).data('control').split(','),
             prop = dataBox[0],
-            selector = '#'+dataBox[1],
-            val = $(this).val(),
-            unit = val != '' && !isNaN(val) ? $(this).closest('.prop-control').find('.unit select').val() : '';
-            "#undefined"==selector&&(selector='[data-prop-apply*="'+prop.split("-")[0]+'"]');
-        $(selector).css(prop, val + unit);
+            selector = '#' + dataBox[1],
+            val = $(this).val().replace(' ','-').toLowerCase(),
+            unit = $(this).closest('.prop-control').find('.unit select')
+            unitVal = val != '' && !isNaN(val) && unit.length ? unit.val() : '';
+        "#undefined" == selector && (selector = '[data-prop-apply*="' + prop.split("-")[0] + '"]');
+        $(selector + ',#css-collector').css(prop, val + unitVal);
     });
 
     $('.unit select').on('change', function () {
@@ -129,12 +154,12 @@ var initCssGenerator = function () {
         var collapsibleContent = $(this).closest('.collapsible-content'),
             dataBox = collapsibleContent.data('collective').split(','),
             prop = dataBox[0],
-            selector = '#'+dataBox[1],
+            selector = '#' + dataBox[1],
             val = collapsibleContent.find('.overflow-hidden>input,.overflow-hidden>select').map(function () {
                 return $(this).val() != 'Outset' && $(this).val() != '' ? $(this).val() + $(this).closest('.prop-control').find('.unit select').val() : '';
             }).get().join(' ').replace(/undefined/g, '');
-            "#undefined"==selector&&(selector='[data-prop-apply*="'+prop.split("-")[0]+'"]');
-        $(selector).css(prop, val);
+        "#undefined" == selector && (selector = '[data-prop-apply*="' + prop.split("-")[0] + '"]');
+        $(selector + ',#css-collector').css(prop, val);
     });
 }
 
