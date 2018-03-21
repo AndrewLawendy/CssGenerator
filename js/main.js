@@ -93,6 +93,7 @@ var initCssGenerator = function () {
             $('[data-show-template="' + value + '"]').addClass('active entering').show();
         });
     });
+    $('#model-template').change();
 
     $('.collapsible h3').on('click', function () {
         var collapsible = $(this).closest('.collapsible'),
@@ -112,11 +113,12 @@ var initCssGenerator = function () {
 
     $('[data-control]').on('keyup change', function () {
         var dataBox = $(this).data('control').split(','),
-            selector = dataBox[0],
-            prop = dataBox[1],
+            prop = dataBox[0],
+            selector = '#'+dataBox[1],
             val = $(this).val(),
             unit = val != '' && !isNaN(val) ? $(this).closest('.prop-control').find('.unit select').val() : '';
-        $('#' + selector).css(prop, val + unit);
+            "#undefined"==selector&&(selector='[data-prop-apply*="'+prop.split("-")[0]+'"]');
+        $(selector).css(prop, val + unit);
     });
 
     $('.unit select').on('change', function () {
@@ -126,12 +128,13 @@ var initCssGenerator = function () {
     $('[data-collective]').on('change keyup', function () {
         var collapsibleContent = $(this).closest('.collapsible-content'),
             dataBox = collapsibleContent.data('collective').split(','),
-            selector = dataBox[0],
-            prop = dataBox[1],
+            prop = dataBox[0],
+            selector = '#'+dataBox[1],
             val = collapsibleContent.find('.overflow-hidden>input,.overflow-hidden>select').map(function () {
                 return $(this).val() != 'Outset' && $(this).val() != '' ? $(this).val() + $(this).closest('.prop-control').find('.unit select').val() : '';
             }).get().join(' ').replace(/undefined/g, '');
-        $('#' + selector).css(prop, val);
+            "#undefined"==selector&&(selector='[data-prop-apply*="'+prop.split("-")[0]+'"]');
+        $(selector).css(prop, val);
     });
 }
 

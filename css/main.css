@@ -7,14 +7,16 @@ header .logo{height: 75px;float: left;margin-right: 15px}
 header ul{overflow: hidden;height:75px}
 header ul li{list-style-type: none;cursor: pointer}
 /*Main Classes*/
-[data-hide-condition],#css-collector{display: none}
+[data-hide-condition],[data-show-template],#css-collector{display: none}
 h3{font-size: 1.5rem}
 .float-right{float: right}
 .float-left{float: left}
 .clear{clear: both;display: block}
 .clearfix::after{content: '';display: table;clear: both;}
 .overflow-hidden{overflow: hidden;}
-.marg-t15{margin-top:15px}
+.margin-zero{margin:0!important}
+.padding-zero{padding:0!important}
+.marg-b15{margin-bottom:15px}
 .half-width{width:50%;-webkit-box-sizing: border-box;box-sizing: border-box}
 .container{width:100%;padding: 15px;-webkit-box-sizing: border-box;box-sizing: border-box}
 .main-section{height:calc(100vh - 135px);padding:15px;-webkit-box-sizing:border-box;box-sizing:border-box}
@@ -23,6 +25,7 @@ h3{font-size: 1.5rem}
 .btn-primary{background: #00b9ff}
 .btn-secondary{background:#10b63e}
 .btn-each-primary{background: #ff7d00}
+.btn-each-secondary{background: #ff0eb9}
 .btn-wrp .btn:nth-last-of-type(1n+2){margin-left:10px}
 .btn-wrp .float-right+.overflow-hidden{padding-right:10px}
 .vertical-middle::before{content:'';display: inline-block;width: 0;height: 100%;vertical-align: middle;}
