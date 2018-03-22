@@ -56,13 +56,18 @@ var cssGetter = function (prop, value) {
     }).join(';');
 }
 
+var updateFields = function (selector) {
+    selector.keyup().change();
+}
+
 var initCssGenerator = function () {
+    //Generate Css
     $('#generateCss').on('click', function () {
         var collectionAttr = $('#css-collector').attr('style');
         if (collectionAttr == undefined || collectionAttr == '') return alert('Add style to generate it');
         var cssCollection = '{' + collectionAttr.split('; ').map(function (dec) {
             var prop = dec.split(': ')[0],
-                value = dec.split(': ')[1].replace(';','');
+                value = dec.split(': ')[1].replace(';', '');
             return cssGetter(prop, value);
         }).join(';') + '}';
         $('#generation-popup .popup-content p').text(cssCollection);
@@ -82,43 +87,25 @@ var initCssGenerator = function () {
             '27' == e.keyCode && closePopUp()
         });
     });
+    //Collapse All
     $('#collapseAll').on('click', function () {
         $('.collapsible').removeClass('active');
         $('.collapsible-content,.show-each').slideUp('fast');
         $('.prop-control .all input[type="checkbox"]:checked').prop('checked', false);
     });
+    //Expand All
     $('#expandAll').on('click', function () {
         $('.collapsible').addClass('active');
         $('.collapsible-content').slideDown('fast');
     });
+    //Reset
     $('#reset').on('click', function () {
         $('.prop-control input').val('');
         $('.prop-control select').prop('selectedIndex', 0);
         $('#preview-side [data-show-template] [style],#css-collector').removeAttr('style');
+        $('.v-switch input:checked').prop('checked',false).change();
     });
-
-    $('.prop-control [class*="switch"] input[data-show]').on('change', function () {
-        var dataShow = $(this).data('show');
-        $('#' + dataShow).slideToggle('fast');
-    });
-
-    $('.prop-control input[type="color"]').on('change', function () {
-        var propControl = $(this).closest('.prop-control'),
-            propUnit = propControl.find('.input-display'),
-            colorValue = $(this).val();
-        propUnit.text(colorValue).css('background', colorValue);
-    });
-    $('.prop-control input[type="color"]').change();
-
-    $('#model-template').on('change', function () {
-        var value = $(this).val();
-        $('[data-show-template].active').addClass('leaving').fadeOut('300', function () {
-            $(this).removeClass('active leaving');
-            $('[data-show-template="' + value + '"]').addClass('active entering').show();
-        });
-    });
-    $('#model-template').change();
-
+    //Colappsible
     $('.collapsible h3').on('click', function () {
         var collapsible = $(this).closest('.collapsible'),
             content = collapsible.find('.collapsible-content');
@@ -127,29 +114,62 @@ var initCssGenerator = function () {
         collapsible.toggleClass('active');
         content.slideToggle('fast');
     });
-
+    //Model Template
+    $('#model-template').on('change', function () {
+        var value = $(this).val();
+        $('[data-show-template].active').addClass('leaving').fadeOut('300', function () {
+            $(this).removeClass('active leaving');
+            $('[data-show-template="' + value + '"]').addClass('active entering').show();
+        });
+    });
+    $('#model-template').change();
+    //End Model Template
+    //Prop Control
+    $('.prop-control [class*="switch"] input[data-show]').on('change', function () {
+        var propControl = $(this).closest('.prop-control'),
+            dataControl = propControl.find('.overflow-hidden'),
+            dataUnit = propControl.find('.unit'),
+            dataShow = $(this).data('show'),
+            selector = $('#' + dataShow),
+            checked = $(this).is(':checked');
+            !dataUnit.length?dataUnit = propControl.find('.input-display'):'';
+        selector.slideToggle('fast');
+        if (checked) {
+            dataControl.add(dataUnit).addClass('read-only');
+            updateFields(selector.find('input,select,range'));
+        } else {
+            dataControl.add(dataUnit).removeClass('read-only');
+            updateFields(dataControl.find('input,select,range'));
+        }
+    });
+    $('.prop-control input[type="color"]').on('change', function () {
+        var propControl = $(this).closest('.prop-control'),
+            propUnit = propControl.find('.input-display'),
+            colorValue = $(this).val();
+        propUnit.text(colorValue).css('background', colorValue);
+    });
+    $('.prop-control input[type="color"]').change();
+    //End of Control
+    //Preview controls
     $('select[data-hide]').on('change', function () {
         var condition = $(this).data('hide'),
             target = $('[data-hide-condition="' + condition + '"]'),
             value = $(this).val().toLowerCase();
         value == condition ? target.slideUp('fast').find('input').val('').change() : target.slideDown('fast');
     });
-
     $('[data-control]').on('keyup change', function () {
         var dataBox = $(this).data('control').split(','),
             prop = dataBox[0],
             selector = '#' + dataBox[1],
-            val = $(this).val().replace(' ','-').toLowerCase(),
+            val = $(this).val().replace(' ', '-').toLowerCase(),
             unit = $(this).closest('.prop-control').find('.unit select')
-            unitVal = val != '' && !isNaN(val) && unit.length ? unit.val() : '';
+        unitVal = val != '' && !isNaN(val) && unit.length ? unit.val() : '';
         "#undefined" == selector && (selector = '[data-prop-apply*="' + prop.split("-")[0] + '"]');
         $(selector + ',#css-collector').css(prop, val + unitVal);
     });
-
     $('.unit select').on('change', function () {
         $(this).closest('.prop-control').find('input').keyup();
     });
-
     $('[data-collective]').on('change keyup', function () {
         var collapsibleContent = $(this).closest('.collapsible-content'),
             dataBox = collapsibleContent.data('collective').split(','),
@@ -161,6 +181,7 @@ var initCssGenerator = function () {
         "#undefined" == selector && (selector = '[data-prop-apply*="' + prop.split("-")[0] + '"]');
         $(selector + ',#css-collector').css(prop, val);
     });
+    //End of Preview controls
 }
 
 $(document).ready(initCssGenerator)

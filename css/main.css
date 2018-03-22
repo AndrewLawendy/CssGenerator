@@ -9,6 +9,7 @@ header ul{overflow: hidden;height:75px}
 header ul li{list-style-type: none;cursor: pointer}
 /*Main Classes*/
 [data-hide-condition],[data-show-template],#css-collector{display: none}
+[readonly],.read-only{opacity:.3;pointer-events: none}
 h3{font-size: 1.5rem}
 .float-right{float: right}
 .float-left{float: left}
@@ -107,6 +108,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance: none;appearance: n
 .collapsible.active h3{border-bottom-left-radius: 0;border-bottom-right-radius: 0}
 .collapsible.active h3::after{-webkit-transform: rotate(-90deg);-ms-transform: rotate(-90deg);transform: rotate(-90deg)}
 .collapsible-content .prop-control:nth-of-type(1n+2){margin-top:10px}
+.collapsible-content .prop-control .overflow-hidden,.collapsible-content .prop-control .unit{-webkit-transition: opacity .3s;-o-transition: opacity .3s;transition: opacity .3s}
 .collapsible-content .show-each{display: none;margin-top:10px}
 /*Preview Side*/
 #preview-side [data-show-template]{-webkit-animation-fill-mode: forwards;animation-fill-mode: forwards;}
