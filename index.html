@@ -954,12 +954,49 @@
                         </div>
                     </div>
                 </div>
+                <!-- Text -->
+                <div class="collapsible">
+                    <h3>Text</h3>
+                    <div class="collapsible-content clearfix">
+                        <!-- Color -->
+                        <div class="prop-control half-width float-left">
+                            <label for="text-color">Color</label>
+                            <p class="input-display float-right">#000000</p>
+                            <div class="overflow-hidden">
+                                <input type="color" value="#000000" name="text" id="text-color" data-control="color">
+                            </div>
+                        </div>
+                        <!-- Font Family -->
+                        <div class="prop-control half-width float-left">
+                            <label for="font-family">Font Family</label>
+                            <div class="overflow-hidden">
+                                <input type="text" name="text" id="font-family" data-control="font-family">
+                            </div>
+                        </div>
+                        <!-- Font Size -->
+                        <div class="prop-control half-width float-left">
+                            <label for="font-size">Font Size</label>
+                            <div class="unit float-right">
+                                    <select>
+                                        <option>px</option>
+                                        <option>em</option>
+                                        <option>rem</option>
+                                        <option>%</option>
+                                        <option>vh</option>
+                                        <option>vw</option>
+                                    </select>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <input type="number" name="text" id="font-size" data-control="font-size">
+                                </div>
+                        </div>
+                    </div>
         </section>
         <section id="preview-side" class="main-section float-left">
             <div class="section-body">
                 <div id="box-model" data-show-template="None" class="active">
                     <h3 class="marg-b15">Box Model</h3>
-                    <div id="box-position" data-prop-apply="width;min-width;height;min-height;position;top;right;bottom;left;box-shadow;display;box-sizing;overflow;float;clear;opacity">
+                    <div id="box-position" data-prop-apply="width;min-width;height;min-height;position;top;right;bottom;left;box-shadow;display;box-sizing;overflow;float;clear;opacity;font;text;color">
                         <div id="box-margin" data-prop-apply="margin">
                             <div id="box-border" data-prop-apply="border">
                                 <div id="box-padding" data-prop-apply="padding">

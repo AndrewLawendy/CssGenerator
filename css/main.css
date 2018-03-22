@@ -107,7 +107,7 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance: none;appearance: n
 .collapsible .collapsible-content{padding: 10px;background: #f8f8f8;border-bottom-right-radius: 5px;border-bottom-left-radius: 5px;display: none}
 .collapsible.active h3{border-bottom-left-radius: 0;border-bottom-right-radius: 0}
 .collapsible.active h3::after{-webkit-transform: rotate(-90deg);-ms-transform: rotate(-90deg);transform: rotate(-90deg)}
-.collapsible-content .prop-control:nth-of-type(1n+2){margin-top:10px}
+.collapsible-content .half-width .prop-control:nth-of-type(1n+2),.collapsible-content>.prop-control:nth-of-type(1n+3){margin-top:10px}
 .collapsible-content .prop-control .overflow-hidden,.collapsible-content .prop-control .unit{-webkit-transition: opacity .3s;-o-transition: opacity .3s;transition: opacity .3s}
 .collapsible-content .show-each{display: none;margin-top:10px}
 /*Preview Side*/
